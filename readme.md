@@ -16,7 +16,7 @@ Dit is een generator voor opdrachten voor de CoderDojo in Wijchen.
 Je kan een nieuwe opdracht toevoegen door een nieuw markdown-bestand aan te maken in `source/articles`. 
 
 Een voorbeeld van een bron-bestand:
-```md
+```
 ---
 {
 	"title": "Titel van de opdracht",
