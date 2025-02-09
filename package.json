@@ -1,0 +1,20 @@
+{
+  "name": "coderdojo-wijchen-template",
+  "version": "0.1.0",
+  "description": "Template voor CoderDojo opdrachten, voor CoderDojo Wijchen.",
+  "main": "index.js",
+  "type": "module",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "build": "node_modules/.bin/static-site-generate",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "hansjovis",
+  "license": "MIT",
+  "dependencies": {
+    "@hansjovis/sharkdown": "file:../sharkdown",
+    "@hansjovis/static-site-generator": "file:../site-generator"
+  }
+}

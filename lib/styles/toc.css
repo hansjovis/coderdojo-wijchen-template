@@ -1,0 +1,22 @@
+#toc {
+    & ol {
+        counter-reset: section;
+        list-style-type: none;
+    }
+    & .line {
+        display: flex;
+        justify-content: flex-start;
+        border-block-end: 1px solid gray;
+    }
+    & .line::before {
+        counter-increment: section;
+        content: counters(section, ".") ". ";
+        margin-inline-end: 0.5rem;
+        font-weight: bold;
+    }
+    & .line::after {
+        content: " " attr(data-page-nr);
+        font-weight: bold;
+        margin-inline-start: auto;
+    }
+}

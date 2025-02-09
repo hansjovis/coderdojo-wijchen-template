@@ -1,0 +1,172 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 80ch;
+  margin-inline: auto;
+  padding-inline: 1em;
+  font-family: sans-serif;
+  line-height: 1.2;
+
+  counter-reset: figure;
+}
+
+.front-page img {
+  display: block;
+  max-width: 60%;
+  margin-inline: auto;
+}
+
+figure img {
+  display: block;
+  max-width: 75%;
+  margin-inline: auto;
+}
+
+h1 {
+  text-align: center;
+  font-size: 3rem;
+}
+
+figcaption {
+  font-style: italic;
+  text-align: center;
+}
+
+figcaption > p::before {
+  counter-increment: figure;
+  content: "Afbeelding " counter(figure) ": ";
+}
+
+.two-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5em;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.tip {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  padding-inline: 1em;
+  margin-block: 1em;
+}
+
+@media (max-width: 640px) {
+  .two-columns {
+    display: block;
+  }
+}
+
+.difficulty-level::before {
+  content: "Niveau: ";
+}
+
+.author::before {
+  content: "Gemaakt door ";
+}
+
+.material::before {
+  content: "Voor ";
+}
+
+code {
+  font-family: monospace;
+}
+
+pre {
+  border: 1px solid gray;
+  padding-inline: 1ch;
+  padding-block: 1ch;
+  white-space: pre-wrap;
+}
+
+@media print {
+  :root {
+    --page-margin: 2cm;
+  }
+
+  @page {
+    size: A4;
+    --page-margin: 2cm;
+    margin: var(--page-margin);
+  }
+
+  .front-page {
+    text-align: center;
+    background: url(../images/CoderDojo-Wijchen-watermerk.png), url(../images/python-logo.png);
+    background-repeat: no-repeat;
+    background-position: top left, calc(100% - 5mm) 5mm;
+    background-size: 6.5cm, 2cm;
+  }
+
+  .page {
+    box-sizing: border-box;
+    page-break-after: always;
+
+    border: 4px solid #336666;
+
+    padding: 1cm;
+    padding-block-start: 5mm;
+
+    height: calc(294mm - (2 * var(--page-margin)));
+
+    counter-increment: pageNr;
+
+    position: relative;
+  }
+
+  h1,
+  h2 {
+    text-align: center;
+  }
+
+  h1 {
+    margin-block-start: 3cm;
+    font-size: 15mm;
+  }
+
+  h2 {
+    margin-block-start: 5mm;
+  }
+
+  figcaption {
+    margin-block-start: 5mm;
+    font-style: italic;
+    text-align: center;
+  }
+
+  .page {
+    font-size: 5mm;
+  }
+
+  li {
+    margin-block: 2.5mm;
+  }
+
+  li > p {
+    margin-block: 0;
+  }
+
+  .author {
+    text-align: center;
+    font-size: 5mm;
+  }
+
+  .difficulty-level {
+    font-size: 10mm;
+    text-align: center;
+  }
+
+  .page::after {
+    content: counter(pageNr);
+    position: absolute;
+
+    right: 0;
+    bottom: 0;
+
+    margin: 5mm;
+  }
+}
